@@ -1,7 +1,7 @@
 {
   "name": "generator-aspnet-proj",
-  "version": "0.0.0",
-  "description": "Generate ASP.NET vNext project",
+  "version": "0.0.1",
+  "description": "Generate ASP.NET 5 project",
   "license": "MIT",
   "main": "app/index.js",
   "author": "kazuhide maruyama",
@@ -28,6 +28,5 @@
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
-  },
-  "private": true
+  }
 }
