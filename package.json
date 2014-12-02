@@ -1,0 +1,33 @@
+{
+  "name": "generator-aspnet-proj",
+  "version": "0.0.0",
+  "description": "Generate ASP.NET vNext project",
+  "license": "MIT",
+  "main": "app/index.js",
+  "author": "kazuhide maruyama",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "^0.5.0",
+    "uuid": "^2.0.1",
+    "yeoman-generator": "^0.18.0",
+    "yosay": "^1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  },
+  "private": true
+}
