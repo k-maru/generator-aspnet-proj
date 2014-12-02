@@ -1,6 +1,6 @@
 {
   "name": "generator-aspnet-proj",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generate ASP.NET 5 project",
   "license": "MIT",
   "main": "app/index.js",
