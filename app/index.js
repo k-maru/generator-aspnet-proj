@@ -73,11 +73,12 @@ var AspnetProjectGenerator = yeoman.generators.Base.extend({
         this.dest.mkdir("wwwroot");
 
         if(this.opts.framework.indexOf("mvc") > -1){
-            this.dest.mkdir("controllers");
-            this.dest.mkdir("views");
-            this.dest.mkdir("models");
+            this.dest.mkdir("Controllers");
+            this.dest.mkdir("Views");
+            this.dest.mkdir("Views/Shared");
+            this.dest.mkdir("Models");
         }
-        
+
         this.expandFiles("**", {
             cwd: this.sourceRoot()
         }).forEach(function(file) {
