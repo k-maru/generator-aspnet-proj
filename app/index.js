@@ -32,7 +32,7 @@ var AspnetProjectGenerator = yeoman.generators.Base.extend({
         }, {
             type: "checkbox",
             name: "server",
-            message: "Please select the web server.",
+            message: "Please select the web servers.",
             choices: [{
                 name: "IIS",
                 value: "iis",
@@ -52,6 +52,15 @@ var AspnetProjectGenerator = yeoman.generators.Base.extend({
                 }
                 return true;
             }
+        }, {
+            type: "checkbox",
+            name: "framework",
+            message: "Please select the frameworks / libraries / tools.",
+            choices: [{
+                name: "MVC",
+                value: "mvc",
+                checked: true
+            }]
         });
 
         this.prompt(prompts, function(prop) {
@@ -63,6 +72,12 @@ var AspnetProjectGenerator = yeoman.generators.Base.extend({
     writing: function() {
         this.dest.mkdir("wwwroot");
 
+        if(this.opts.framework.indexOf("mvc") > -1){
+            this.dest.mkdir("controllers");
+            this.dest.mkdir("views");
+            this.dest.mkdir("models");
+        }
+        
         this.expandFiles("**", {
             cwd: this.sourceRoot()
         }).forEach(function(file) {
@@ -96,6 +111,7 @@ var AspnetProjectGenerator = yeoman.generators.Base.extend({
             version: "1.0.0-*",
             webroot: "wwwroot",
             exclude: ["wwwroot"],
+            packExclude: ["**.kproj", "**.user"],
             dependencies: {
                 "Microsoft.AspNet.StaticFiles": "1.0.0-beta1",
                 "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-beta1",
@@ -134,6 +150,18 @@ var AspnetProjectGenerator = yeoman.generators.Base.extend({
             projectJson = this._.merge(projectJson, {
                 dependencies: {
                     "Microsoft.AspNet.Server.IIS": "1.0.0-beta1"
+                }
+            });
+        }
+
+        if(this.opts.framework.indexOf("mvc") > -1){
+            projectJson = this._.merge(projectJson, {
+                dependencies: {
+                    "Microsoft.AspNet.Mvc": "6.0.0-beta1",
+                    "Microsoft.Framework.CodeGenerators.Mvc": "1.0.0-beta1"
+                },
+                commands: {
+                    "gen": "Microsoft.Framework.CodeGeneration"
                 }
             });
         }

@@ -1,8 +1,21 @@
 {
   "name": "generator-aspnet-proj",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Generate ASP.NET 5 project",
-  "license": "MIT",
+  "homepage": "https://github.com/k-maru/generator-aspnet-proj",
+  "repository": {
+      "type": "git",
+      "url": "git@github.com:k-maru/generator-aspnet-proj.git"
+  },
+  "bugs": {
+      "url": "https://github.com/k-maru/generator-aspnet-proj/issues"
+  },
+  "licenses": [
+      {
+          "type": "MIT",
+          "url": "https://github.com/k-maru/generator-aspnet-proj/blob/master/LICENSE"
+      }
+  ],
   "main": "app/index.js",
   "author": "kazuhide maruyama",
   "engines": {
